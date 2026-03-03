@@ -1,4 +1,7 @@
 spring:
+  application:
+    name: nexus-list
+
   datasource:
     url: jdbc:postgresql://hopper.proxy.rlwy.net:45622/railway
     username: postgres
@@ -8,9 +11,16 @@ spring:
       maximum-pool-size: 5
 
   jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update
     show-sql: true
     properties:
       hibernate:
         format_sql: true
+
+springdoc:
+  swagger-ui:
+    url: http://localhost:8080/v3/api-docs
+  servers:
+    - url: http://localhost:8080

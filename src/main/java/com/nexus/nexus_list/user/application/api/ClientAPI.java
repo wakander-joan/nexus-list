@@ -4,6 +4,8 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @RestController
 @RequestMapping("/cliente")
 public interface ClientAPI {
@@ -12,4 +14,7 @@ public interface ClientAPI {
     @ResponseStatus(code = HttpStatus.CREATED)
     ClientResponse createClient (@Valid @RequestBody ClientRequest clientRequest);
 
+    @GetMapping("/getClient/{idClient}")
+    @ResponseStatus(code = HttpStatus.OK)
+    ClientDetailedResponse getClient(@PathVariable UUID idClient);
 }
