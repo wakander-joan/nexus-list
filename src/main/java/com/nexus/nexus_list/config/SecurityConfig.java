@@ -11,16 +11,24 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
+                .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
                                 "/swagger-ui/**",
                                 "/swagger-ui.html",
-                                "/v3/api-docs/**"
+                                "/v3/api-docs/**",
+                                "/cliente/createClient" // 👈 adiciona aqui
                         ).permitAll()
                         .anyRequest().authenticated()
-                )
-                .csrf(csrf -> csrf.disable());
+                );
 
         return http.build();
     }
+
+    /* Após implementar o JWT..........
+                .requestMatchers(
+                        "/auth/login",
+                                "/cliente/createClient"
+                   ).permitAll()
+                .anyRequest().authenticated() */
 }
