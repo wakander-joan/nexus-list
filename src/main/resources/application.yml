@@ -17,3 +17,12 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
+server:
+  port: ${PORT:8080}
+
+springdoc:
+  swagger-ui:
+    url: https://nexus-list-production.up.railway.app/v3/api-docs
+  servers:
+    - url: https://nexus-list-production.up.railway.app
