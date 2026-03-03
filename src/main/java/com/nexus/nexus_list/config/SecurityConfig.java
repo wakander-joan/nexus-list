@@ -25,10 +25,11 @@ public class SecurityConfig {
         return http.build();
     }
 
-    /* Após implementar o JWT..........
+    /* Após implementar o JWT no projeto..........
                 .requestMatchers(
                         "/auth/login",
                                 "/cliente/createClient"
                    ).permitAll()
                 .anyRequest().authenticated() */
+
 }
