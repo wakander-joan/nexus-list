@@ -3,6 +3,7 @@ package com.nexus.nexus_list.user.application.service;
 import com.nexus.nexus_list.user.application.api.ClientDetailedResponse;
 import com.nexus.nexus_list.user.application.api.ClientRequest;
 import com.nexus.nexus_list.user.application.api.ClientResponse;
+import com.nexus.nexus_list.user.application.api.EditClientRequest;
 import com.nexus.nexus_list.user.application.repository.ClientRepository;
 import com.nexus.nexus_list.user.domain.Client;
 import lombok.RequiredArgsConstructor;
@@ -32,5 +33,14 @@ public class ClientApplicationService implements ClientService {
         Client clientBuscado = clientRepository.getClient(idClient);
         log.info("[finish] ClientApplicationService - getClient");
         return new ClientDetailedResponse(clientBuscado);
+    }
+
+    @Override
+    public void editClient(UUID idClient, EditClientRequest editClientRequest) {
+        log.info("[start] ClientApplicationService - editClient");
+        Client clientBuscado = clientRepository.getClient(idClient);
+        clientBuscado.edit(clientBuscado, editClientRequest);
+        clientRepository.save(clientBuscado);
+        log.info("[finish] ClientApplicationService - editClient");
     }
 }

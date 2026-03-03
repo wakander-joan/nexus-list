@@ -32,4 +32,11 @@ public class ClientController implements ClientAPI {
         log.info("[finish] ClientController - getClient");
         return client;
     }
+
+    @Override
+    public void editClient(UUID idClient, EditClientRequest editClientRequest) {
+        log.info("[start] ClientController - editClient");
+        clientService.editClient(idClient, editClientRequest);
+        log.info("[finish] ClientController - editClient");
+    }
 }

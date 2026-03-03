@@ -1,6 +1,7 @@
 package com.nexus.nexus_list.user.domain;
 
 import com.nexus.nexus_list.user.application.api.ClientRequest;
+import com.nexus.nexus_list.user.application.api.EditClientRequest;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.extern.log4j.Log4j2;
@@ -33,5 +34,19 @@ public class Client {
         this.email = clientRequest.getEmail();
         this.password = new BCryptPasswordEncoder().encode(clientRequest.getPassword());
         this.imgProfileKey =  clientRequest.getImgProfileKey();
+    }
+
+    public void edit(Client clientBuscado, EditClientRequest editClientRequest) {
+        this.name = (editClientRequest.getName() != null && !editClientRequest.getName().isBlank())
+                ? editClientRequest.getName()
+                : clientBuscado.getName();
+
+        this.email = (editClientRequest.getEmail() != null && !editClientRequest.getEmail().isBlank())
+                ? editClientRequest.getEmail()
+                : clientBuscado.getEmail();
+
+        this.imgProfileKey = (editClientRequest.getImgProfileKey() != null && !editClientRequest.getImgProfileKey().isBlank())
+                ? editClientRequest.getImgProfileKey()
+                : clientBuscado.getImgProfileKey();
     }
 }

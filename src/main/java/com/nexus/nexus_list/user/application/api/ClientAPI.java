@@ -17,4 +17,9 @@ public interface ClientAPI {
     @GetMapping("/getClient/{idClient}")
     @ResponseStatus(code = HttpStatus.OK)
     ClientDetailedResponse getClient(@PathVariable UUID idClient);
+
+    @PatchMapping(value = "/editClient/{idClient}")
+    @ResponseStatus(code = HttpStatus.OK)
+    void editClient (@PathVariable UUID idClient, @Valid @RequestBody EditClientRequest editClientRequest);
+
 }

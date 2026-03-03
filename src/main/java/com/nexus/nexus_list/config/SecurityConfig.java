@@ -18,7 +18,8 @@ public class SecurityConfig {
                                 "/swagger-ui.html",
                                 "/v3/api-docs/**",
                                 "/cliente/createClient",
-                                "/cliente/getClient/**"  // ← adicionar essa linha
+                                "/cliente/getClient/**",
+                                "/cliente/editClient/**"
                         ).permitAll()
                         .anyRequest().authenticated()
                 );
