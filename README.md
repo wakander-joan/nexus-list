@@ -24,3 +24,8 @@
    ```
 
    Status até o atual momento (Projeto em desenvolvimento...)
+
+### 🔒 Teste
+* [Swagger teste local](http://localhost:8080/swagger-ui/index.html)
+
+* [Swagger teste deploy](https://nexus-list-production.up.railway.app/swagger-ui/index.html)

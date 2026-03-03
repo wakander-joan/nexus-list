@@ -1,0 +1,25 @@
+package com.nexus.nexus_list.user.application.service;
+
+import com.nexus.nexus_list.user.application.api.ClientRequest;
+import com.nexus.nexus_list.user.application.api.ClientResponse;
+import com.nexus.nexus_list.user.application.repository.ClientRepository;
+import com.nexus.nexus_list.user.domain.Client;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
+import org.springframework.stereotype.Service;
+
+@RequiredArgsConstructor
+@Log4j2
+@Service
+public class ClientApplicationService implements ClientService {
+    private final ClientRepository clientRepository;
+
+    @Override
+    public ClientResponse createClient(ClientRequest clientRequest) {
+        log.info("[start] ClientApplicationService - createClient");
+        //Valida E-mail
+        Client client = clientRepository.save(new Client(clientRequest));
+        log.info("[finish] ClientApplicationService - createClient");
+        return new ClientResponse(client);
+    }
+}
