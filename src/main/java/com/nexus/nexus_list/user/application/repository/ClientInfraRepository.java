@@ -8,6 +8,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
 import java.util.UUID;
 
 @Repository
@@ -32,4 +33,14 @@ public class ClientInfraRepository implements ClientRepository {
         log.info("[finish] ClientInfraRepository - getClient");
         return clientBuscado;
     }
+
+    @Override
+    public Optional<Client> findByEmail(String email) {
+        log.info("[start] ClientInfraRepository - findByEmail");
+        Optional<Client> findByEmail = clientSpringDataJPARepository.findByEmail(email);
+        log.info("[finish] ClientInfraRepository - findByEmail");
+        return findByEmail;
+    }
+
+
 }

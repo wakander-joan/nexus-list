@@ -24,3 +24,7 @@ springdoc:
     url: http://localhost:8080/v3/api-docs
   servers:
     - url: http://localhost:8080
+
+jwt:
+  secret: dGVzdGVTZWNyZXRLZXlQYXJhTmV4dXNMaXN0QXBwbGljYXRpb25KV1QyMDI0
+  expiration: 86400000
