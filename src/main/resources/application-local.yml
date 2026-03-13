@@ -28,3 +28,10 @@ springdoc:
 jwt:
   secret: dGVzdGVTZWNyZXRLZXlQYXJhTmV4dXNMaXN0QXBwbGljYXRpb25KV1QyMDI0
   expiration: 86400000
+
+aws:
+  access-key: ${AWS_ACCESS_KEY_ID}
+  secret-key: ${AWS_SECRET_ACCESS_KEY}
+  region: ${AWS_REGION}
+  bucket-name: ${AWS_BUCKET_NAME}
+  presigned-url-expiration: 5 # minutos
